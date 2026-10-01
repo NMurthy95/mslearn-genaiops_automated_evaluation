@@ -1,0 +1,15 @@
+================================================================================
+ Trail Guide Agent - Evaluation Results
+================================================================================
+
+  Eval ID      : eval_4a8529157e064526bc75a9f6229086a6
+  Run ID       : evalrun_1faedadfde704f27bea9af141d5c8c7b
+  Total items  : 89
+  Errored items: 0
+  Scored items : 89
+
+Average Scores (1-5 scale, threshold: 3)
+  No scores returned — open Azure AI Foundry portal > Evaluations for details.
+
+Pass Rates (score >= 3)
+  No scores returned.
