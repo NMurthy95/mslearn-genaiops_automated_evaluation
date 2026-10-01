@@ -47,10 +47,15 @@ jobs:
           AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
           AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         run: |
-          python src/evaluators/evaluate_agent.py > evaluation_results.txt 2>&1 || true
+          python src/evaluators/evaluate_agent.py > evaluation_results.txt 2>&1
+          status=$?
           cat evaluation_results.txt
-          # Fail the step if the script wrote an error marker
-          grep -q "Evaluation FAILED" evaluation_results.txt && exit 1 || exit 0
+
+          if grep -q "Evaluation FAILED" evaluation_results.txt; then
+            exit 1
+          fi
+
+          exit $status
       
       - name: Comment PR with results
         if: github.event_name == 'pull_request'
